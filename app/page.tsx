@@ -9,59 +9,66 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between md:justify-between">
-          <div className="md:hidden order-1">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <span className="sr-only">Menu</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
-                  >
-                    <line x1="4" x2="20" y1="12" y2="12" />
-                    <line x1="4" x2="20" y1="6" y2="6" />
-                    <line x1="4" x2="20" y1="18" y2="18" />
-                  </svg>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-64">
-                <nav className="flex flex-col gap-4 mt-8">
-                  <Link href="#">Início</Link>
-                  <Link href="#sobre">Sobre</Link>
-                  <Link href="#areas">Áreas de Atuação</Link>
-                  <Link href="#equipe">Equipe</Link>
-                  <Link href="#contato">Contato</Link>
-                  <Link href="/agendamento">Agende uma Consulta</Link>
-                </nav>
-              </SheetContent>
-            </Sheet>
-          </div>
-          <div className="flex items-center gap-2 order-2 md:order-none ml-auto md:ml-0">
-            <Scale className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">Advocacia Silva</span>
-          </div>
-          <nav className="hidden md:flex gap-6">
+<header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <div className="container flex h-16 items-center justify-between md:justify-between">
+    
+    {/* Logo */}
+    <div className="flex items-center gap-2">
+      <Scale className="h-6 w-6 text-primary" />
+      <span className="text-xl font-bold">Advocacia Silva</span>
+    </div>
+
+    {/* Menu Desktop */}
+    <nav className="hidden md:flex items-center text-sm gap-4">
+      <Link href="#">Início</Link>
+      <Link href="#sobre">Sobre</Link>
+      <Link href="#areas">Áreas de Atuação</Link>
+      <Link href="#equipe">Equipe</Link>
+      <Link href="#contato">Contato</Link>
+      <Link href="/agendamento">
+        <Button className="hidden md:flex">Agende uma Consulta</Button>
+      </Link>
+    </nav>
+
+    {/* Menu Mobile */}
+    <div className="md:hidden order-1">
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline" size="icon">
+            <span className="sr-only">Menu</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left" className="w-64">
+          <nav className="flex flex-col gap-4 mt-8">
             <Link href="#">Início</Link>
             <Link href="#sobre">Sobre</Link>
             <Link href="#areas">Áreas de Atuação</Link>
             <Link href="#equipe">Equipe</Link>
             <Link href="#contato">Contato</Link>
-            <Link href="/agendamento">
-            <Button className="hidden md:flex">Agende uma Consulta</Button>
-          </Link>
+            <Link href="/agendamento">Agende uma Consulta</Link>
           </nav>
-        </div>
-      </header>
+        </SheetContent>
+      </Sheet>
+    </div>
+  </div>
+</header>
+      
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
