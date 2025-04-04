@@ -127,10 +127,10 @@ export default function Home() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-6 w-6"
+                    className="lucide lucide-award-icon lucide-award"
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="m16 10-4 4-2-2" />
+                    <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
+                    <circle cx="12" cy="8" r="6" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold">Excelência</h3>
@@ -140,20 +140,22 @@ export default function Home() {
               </div>
               <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
                 <div className="rounded-full border p-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                  width="24" 
+                  height="24" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  className="lucide lucide-scale-icon lucide-scale"
                   >
-                    <path d="M2 12h20" />
-                    <path d="M12 2v20" />
+                  <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                  <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                  <path d="M7 21h10" />
+                  <path d="M12 3v18" />
+                  <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold">Inovação</h3>
@@ -273,28 +275,25 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Contato</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Entre em Contato</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contato</h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Estamos à disposição para atender suas necessidades jurídicas. Entre em contato para agendar uma
-                  consulta.
+                  Estamos à disposição para atender suas necessidades jurídicas.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-primary" />
-                    <span>Av. Paulista, 1000, São Paulo - SP</span>
+                    <a href="https://www.google.com/maps?q=Av.+Paulista,+1000,+São+Paulo+-+SP" target="_blank">Av. Paulista, 1000, São Paulo - SP</a>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span>(11) 3000-0000</span>
+                    <a href="tel:+551130000000">(11) 3000-0000</a>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span>contato@advocaciasilva.com.br</span>
+                    <a href="mailto:contato@advocaciasilva.com.br">contato@advocaciasilva.com.br</a>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
