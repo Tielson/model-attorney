@@ -4,52 +4,62 @@ import { ChevronRight, Mail, MapPin, Phone, Scale } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="container flex h-16 items-center justify-between md:justify-between">
+          <div className="md:hidden order-1">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <span className="sr-only">Menu</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-6 w-6"
+                  >
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                  </svg>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-64">
+                <nav className="flex flex-col gap-4 mt-8">
+                  <Link href="#">Início</Link>
+                  <Link href="#sobre">Sobre</Link>
+                  <Link href="#areas">Áreas de Atuação</Link>
+                  <Link href="#equipe">Equipe</Link>
+                  <Link href="#contato">Contato</Link>
+                  <Link href="/agendamento">Agende uma Consulta</Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
+          <div className="flex items-center gap-2 order-2 md:order-none ml-auto md:ml-0">
             <Scale className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold">Advocacia Silva</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="#" className="text-sm font-medium transition-colors hover:text-primary">
-              Início
-            </Link>
-            <Link href="#sobre" className="text-sm font-medium transition-colors hover:text-primary">
-              Sobre
-            </Link>
-            <Link href="#areas" className="text-sm font-medium transition-colors hover:text-primary">
-              Áreas de Atuação
-            </Link>
-            <Link href="#equipe" className="text-sm font-medium transition-colors hover:text-primary">
-              Equipe
-            </Link>
-            <Link href="#contato" className="text-sm font-medium transition-colors hover:text-primary">
-              Contato
-            </Link>
+            <Link href="#">Início</Link>
+            <Link href="#sobre">Sobre</Link>
+            <Link href="#areas">Áreas de Atuação</Link>
+            <Link href="#equipe">Equipe</Link>
+            <Link href="#contato">Contato</Link>
+            <Link href="/agendamento">
+            <Button className="hidden md:flex">Agende uma Consulta</Button>
+          </Link>
           </nav>
-          <Button className="hidden md:flex">Agende uma Consulta</Button>
-          <Button variant="outline" size="icon" className="md:hidden">
-            <span className="sr-only">Menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          </Button>
         </div>
       </header>
       <main className="flex-1">
@@ -65,7 +75,9 @@ export default function Home() {
                   Conte com nossa experiência para defender seus interesses.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button>Agende uma Consulta</Button>
+                  <Link href="/agendamento">
+                    <Button className="hidden md:flex">Agende uma Consulta</Button>
+                  </Link>
                 </div>
               </div>
               <img
@@ -140,22 +152,22 @@ export default function Home() {
               </div>
               <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
                 <div className="rounded-full border p-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  stroke-width="2" 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round" 
-                  className="lucide lucide-scale-icon lucide-scale"
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-scale-icon lucide-scale"
                   >
-                  <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-                  <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-                  <path d="M7 21h10" />
-                  <path d="M12 3v18" />
-                  <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+                    <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                    <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                    <path d="M7 21h10" />
+                    <path d="M12 3v18" />
+                    <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold">Inovação</h3>
@@ -294,7 +306,20 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <div className="w-full h-[300px] rounded-lg overflow-hidden shadow-md grayscale opcacity-50">
+                <iframe
+                  title="Localização do Escritório"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.980203621234!2d-46.65432168498274!3d-23.576192367105084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c7e0f0b3e1%3A0x1b6e57f2cb9b9c57!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1683905062837!5m2!1spt-BR!2sbr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
+
           </div>
         </section>
       </main>
