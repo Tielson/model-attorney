@@ -1,10 +1,16 @@
-import Link from "next/link"
-import { ChevronRight, Mail, MapPin, Phone, Scale } from "lucide-react"
+"use client";
 
+import React from "react";
+import PhoneInput from 'react-phone-number-input';
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import 'react-phone-number-input/style.css'
+import { useState } from "react";
 
 export default function AgendamentoPage() {
+
+    const [phone, setPhone] = useState<string | undefined>(undefined);
+    const [country, setCountry] = useState<string>('BR'); 
+
     return (
 
 <div className="min-h-screen flex flex-col items-center justify-start bg-gray-50 px-4 py-10">
@@ -49,11 +55,15 @@ export default function AgendamentoPage() {
             >
                 Telefone
             </label>
-            <input
+            <PhoneInput
                 id="phone"
-                type="tel"
+                country={country}
+                value={phone}
+                onChange={setPhone}
+                international
+                defaultCountry="BR" 
+                limitMaxLength
                 className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                placeholder="(00) 00000-0000"
             />
         </div>
         <div className="space-y-2">

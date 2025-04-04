@@ -4,71 +4,12 @@ import { ChevronRight, Mail, MapPin, Phone, Scale } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import Header from "@/components/header"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-<header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-  <div className="container flex h-16 items-center justify-between md:justify-between">
-    
-    {/* Logo */}
-    <div className="flex items-center gap-2">
-      <Scale className="h-6 w-6 text-primary" />
-      <span className="text-xl font-bold">Advocacia Silva</span>
-    </div>
-
-    {/* Menu Desktop */}
-    <nav className="hidden md:flex items-center text-sm gap-4">
-      <Link href="#">Início</Link>
-      <Link href="#sobre">Sobre</Link>
-      <Link href="#areas">Áreas de Atuação</Link>
-      <Link href="#equipe">Equipe</Link>
-      <Link href="#contato">Contato</Link>
-      <Link href="/agendamento">
-        <Button className="hidden md:flex">Agende uma Consulta</Button>
-      </Link>
-    </nav>
-
-    {/* Menu Mobile */}
-    <div className="md:hidden order-1">
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="icon">
-            <span className="sr-only">Menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-64">
-          <nav className="flex flex-col gap-4 mt-8">
-            <Link href="#">Início</Link>
-            <Link href="#sobre">Sobre</Link>
-            <Link href="#areas">Áreas de Atuação</Link>
-            <Link href="#equipe">Equipe</Link>
-            <Link href="#contato">Contato</Link>
-            <Link href="/agendamento">Agende uma Consulta</Link>
-          </nav>
-        </SheetContent>
-      </Sheet>
-    </div>
-  </div>
-</header>
-      
+      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
@@ -256,19 +197,19 @@ export default function Home() {
                   name: "Dr. Carlos Silva",
                   role: "Sócio Fundador",
                   specialty: "Direito Empresarial",
-                  image: "/placeholder.svg?height=400&width=300",
+                  image: "https://images.unsplash.com/photo-1662104935741-3feec65ddf3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
                 {
                   name: "Dra. Ana Oliveira",
                   role: "Sócia",
                   specialty: "Direito Civil",
-                  image: "/placeholder.svg?height=400&width=300",
+                  image: "https://images.unsplash.com/photo-1662104935541-aa5b6e02886d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
                 {
                   name: "Dr. Roberto Santos",
                   role: "Advogado Sênior",
                   specialty: "Direito Tributário",
-                  image: "/placeholder.svg?height=400&width=300",
+                  image: "https://images.unsplash.com/photo-1662104935762-707db0439ecd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
               ].map((member, index) => (
                 <div key={index} className="flex flex-col items-center space-y-4">
