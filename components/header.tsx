@@ -12,7 +12,8 @@ export default function Header() {
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-16 items-center justify-between">
-                {/*menu mobile*/}
+
+                {/* Menu Mobile */}
                 <div className="md:hidden order-1">
                     <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                         <SheetTrigger asChild>
@@ -38,7 +39,16 @@ export default function Header() {
                                 )}
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="left" className="w-64">
+                        <SheetContent
+                            side="left"
+                            className={`w-64 transition-all duration-300 ease-out ${
+                                menuOpen ? 'animate-slide-in-left' : 'animate-slide-out-left'
+                            }`}
+                        >
+                            <div className="flex items-center gap-2 mb-6">
+                                <Scale className="h-5 w-5 text-primary" />
+                                <span className="text-lg font-bold">Advocacia Silva</span>
+                            </div>
                             <nav className="flex flex-col gap-4 mt-8">
                                 <a href="#" onClick={() => setMenuOpen(false)}>Início</a>
                                 <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
@@ -51,13 +61,17 @@ export default function Header() {
                     </Sheet>
                 </div>
 
-                {/*logo*/}
-                <div className="flex items-center gap-2 order-2 md:order-none ml-auto md:ml-0">
-                    <Scale className="h-6 w-6 text-primary" />
-                    <span className="text-xl font-bold">Advocacia Silva</span>
+                {/* Logo */}
+                <div
+                    className={`flex items-center gap-2 order-2 md:order-none ml-auto md:ml-0 transition-all duration-300 ease-in-out ${
+                        menuOpen ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"
+                    }`}
+                >
+                    <Scale className="h-6 w-6 text-primary transition-all duration-300" />
+                    <span className="text-xl font-bold transition-all duration-300">Advocacia Silva</span>
                 </div>
 
-                {/*menu desktop*/}
+                {/* Menu Desktop */}
                 <nav className="hidden md:flex items-center gap-6">
                     <Link href="#">Início</Link>
                     <Link href="#sobre">Sobre</Link>
