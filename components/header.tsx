@@ -1,19 +1,24 @@
 "use client";
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect} from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
+import { Sheet, SheetTrigger, SheetContent, SheetOverlay } from "@/components/ui/sheet"
 import { Scale } from "lucide-react"
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className={`fixed top-0 w-full z-50 backdrop-blur-none md:backdrop-blur-md bg-transparent md:bg-white/70 transition-colors duration-300`}>
             <div className="container flex h-16 items-center justify-between">
-
-                {/* Menu Mobile */}
                 <div className="md:hidden order-1">
                     <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                         <SheetTrigger asChild>
@@ -39,50 +44,75 @@ export default function Header() {
                                 )}
                             </Button>
                         </SheetTrigger>
+                        <SheetOverlay className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40" />
                         <SheetContent
                             side="left"
-                            className={`w-64 transition-all duration-300 ease-out ${
-                                menuOpen ? 'animate-slide-in-left' : 'animate-slide-out-left'
-                            }`}
+                            className={`w-64 transition-all duration-300 ease-out ${menuOpen ? 'animate-slide-in-left' : 'animate-slide-out-left'
+                                }`}
                         >
                             <div className="flex items-center gap-2 mb-6">
                                 <Scale className="h-5 w-5 text-primary" />
                                 <span className="text-lg font-bold">Advocacia Silva</span>
                             </div>
                             <nav className="flex flex-col gap-4 mt-8">
-                                <a href="#" onClick={() => setMenuOpen(false)}>Início</a>
-                                <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
-                                <a href="#areas" onClick={() => setMenuOpen(false)}>Áreas de Atuação</a>
-                                <a href="#equipe" onClick={() => setMenuOpen(false)}>Equipe</a>
-                                <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
-                                <a href="/agendamento" onClick={() => setMenuOpen(false)}>Agende uma Consulta</a>
+                                {[
+                                    { label: "Início", href: "#" },
+                                    { label: "Sobre", href: "#sobre" },
+                                    { label: "Áreas de Atuação", href: "#areas" },
+                                    { label: "Equipe", href: "#equipe" },
+                                    { label: "Contato", href: "#contato" },
+                                    { label: "Agende uma Consulta", href: "/agendamento" },
+                                ].map((item) => (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        onClick={() => setMenuOpen(false)}
+                                        className="transition-transform hover:scale-105"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                ))}
                             </nav>
                         </SheetContent>
                     </Sheet>
                 </div>
 
-                {/* Logo */}
                 <div
-                    className={`flex items-center gap-2 order-2 md:order-none ml-auto md:ml-0 transition-all duration-300 ease-in-out ${
-                        menuOpen ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"
-                    }`}
+                    className={`flex items-center gap-2 order-2 md:order-none ml-auto md:ml-0 transition-all duration-300 ease-in-out ${scrolled ? "opacity-0 pointer-events-none scale-95 md:opacity-100 md:pointer-events-auto md:scale-100" : "opacity-100 scale-100"
+                        } ${menuOpen ? "opacity-0 pointer-events-none scale-95" : ""}`}
                 >
                     <Scale className="h-6 w-6 text-primary transition-all duration-300" />
-                    <span className="text-xl font-bold transition-all duration-300">Advocacia Silva</span>
+                    <span className="text-xl font-bold transition-all duration-300">
+                        Advocacia Silva
+                    </span>
                 </div>
 
-                {/* Menu Desktop */}
-                <nav className="hidden md:flex items-center gap-6">
-                    <Link href="#">Início</Link>
-                    <Link href="#sobre">Sobre</Link>
-                    <Link href="#areas">Áreas de Atuação</Link>
-                    <Link href="#equipe">Equipe</Link>
-                    <Link href="#contato">Contato</Link>
+                <nav
+                    className={`hidden md:flex items-center gap-6 transition-opacity duration-300 ease-in-out ${scrolled ? "opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto" : "opacity-100"
+                        }`}
+                >
+                    {[
+                        { label: "Início", href: "#" },
+                        { label: "Sobre", href: "#sobre" },
+                        { label: "Áreas de Atuação", href: "#areas" },
+                        { label: "Equipe", href: "#equipe" },
+                        { label: "Contato", href: "#contato" },
+                    ].map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className="transition-transform duration-200 ease-out group-hover:scale-90 group-hover:blur-sm group-hover:opacity-70 hover:scale-110 hover:blur-none hover:opacity-100"
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
                     <Link href="/agendamento">
-                        <Button className="hidden md:flex">Agende uma Consulta</Button>
+                        <Button className="hidden md:flex transition-transform hover:scale-105">
+                            Agende uma Consulta
+                        </Button>
                     </Link>
                 </nav>
             </div>
         </header>
-    )
+    );
 }

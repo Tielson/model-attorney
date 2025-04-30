@@ -8,7 +8,7 @@ import Header from "@/components/header"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pt-16">
       <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
@@ -24,17 +24,19 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/agendamento">
-                    <Button className="hidden md:flex">Agende uma Consulta</Button>
+                  <Button className="hidden md:flex transition-transform hover:scale-105 active:scale-95">Agende uma Consulta</Button>
                   </Link>
                 </div>
               </div>
-              <img
+              <div className="overflow-hidden rounded-xl">
+                <img
                 src="https://images.unsplash.com/photo-1572894234976-d961418c709d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="São Paulo vista de cima"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last grayscale opcacity-50 transition-transform duration-300 ease-in-out transform hover:scale-110 hover:grayscale-0"
+                className="transform-gpu will-change-transform transition-transform duration-300 ease-out hover:scale-105 mx-auto aspect-video rounded-xl object-cover object-center sm:w-full lg:order-last grayscale"
                 width={550}
                 height={310}
-              />
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -53,7 +55,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
-              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
+              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4 transform transition-shadow duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="rounded-full border p-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +77,7 @@ export default function Home() {
                   Defendemos seus direitos com determinação e conhecimento jurídico sólido.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
+              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4 transform transition-shadow duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="rounded-full border p-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +100,7 @@ export default function Home() {
                   Buscamos a excelência em cada caso, com atendimento personalizado e soluções eficazes.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
+              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4 transform transition-shadow duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="rounded-full border p-4">
                   <svg xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -139,7 +141,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3 text-center md:text-left">
               {[
                 {
                   title: "Direito Civil",
@@ -232,10 +234,10 @@ export default function Home() {
         </section>
 
         <section id="contato" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 text-center md:text-left">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contato</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center md:text-left">Contato</h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Estamos à disposição para atender suas necessidades jurídicas.
                 </p>
@@ -254,7 +256,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-full h-[300px] rounded-lg overflow-hidden shadow-md grayscale opcacity-50">
+              <div className="w-full h-[300px] rounded-lg overflow-hidden shadow-md grayscale opacity-50">
                 <iframe
                   title="Localização do Escritório"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.980203621234!2d-46.65432168498274!3d-23.576192367105084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c7e0f0b3e1%3A0x1b6e57f2cb9b9c57!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1683905062837!5m2!1spt-BR!2sbr"
