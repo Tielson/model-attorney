@@ -196,38 +196,51 @@ export default function Home() {
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
+                  slug: "carlos-silva",
                   name: "Dr. Carlos Silva",
                   role: "Sócio Fundador",
                   specialty: "Direito Empresarial",
                   image: "https://images.unsplash.com/photo-1662104935741-3feec65ddf3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
                 {
+                  slug: "ana-oliveira",
                   name: "Dra. Ana Oliveira",
                   role: "Sócia",
                   specialty: "Direito Civil",
                   image: "https://images.unsplash.com/photo-1662104935541-aa5b6e02886d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
                 {
+                  slug: "roberto-santos",
                   name: "Dr. Roberto Santos",
                   role: "Advogado Sênior",
                   specialty: "Direito Tributário",
                   image: "https://images.unsplash.com/photo-1662104935762-707db0439ecd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
-              ].map((member, index) => (
-                <div key={index} className="flex flex-col items-center space-y-4">
-                  <img
-                    src={member.image || "/placeholder.svg"}
+              ].map((member) => (
+                <Card key={member.slug} className="border-none shadow-sm">
+                  <CardHeader className="text-center">
+                    <img
+                    src={member.image}
                     alt={member.name}
-                    className="aspect-square w-40 rounded-full object-cover object-center"
+                    className="aspect-square w-40 rounded-full object-cover object-center mx-auto"
                     width={160}
                     height={160}
-                  />
-                  <div className="space-y-2 text-center">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm text-gray-500">{member.role}</p>
-                    <p className="text-sm font-medium">{member.specialty}</p>
+                    />
+                    <CardTitle className="mt-4">{member.name}</CardTitle>
+                    <CardDescription>{member.role}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <CardDescription>{member.specialty}</CardDescription>
+                  </CardContent>
+                  <div className="px-4 pb-4 text-center">
+                    <Link
+                      href={`/equipe/${member.slug}`}
+                      className="inline-flex items-center text-sm text-primary hover:underline transition-transform hover:scale-105"
+                    >
+                      Veja perfil completo <ChevronRight className="w-4 h-4 ml-1" />
+                    </Link>
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
