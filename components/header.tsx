@@ -61,6 +61,7 @@ export default function Header() {
                                     { label: "Áreas de Atuação", href: "#areas" },
                                     { label: "Equipe", href: "#equipe" },
                                     { label: "Contato", href: "#contato" },
+                                    { label: "Blog", href: "/blog" },
                                     { label: "Agende uma Consulta", href: "/agendamento" },
                                 ].map((item) => (
                                     <Link
@@ -97,6 +98,7 @@ export default function Header() {
                         { label: "Áreas de Atuação", href: "#areas" },
                         { label: "Equipe", href: "#equipe" },
                         { label: "Contato", href: "#contato" },
+                        { label: "Blog", href: "/blog" },
                     ].map((item) => (
                         <Link
                             key={item.href}
