@@ -4,56 +4,14 @@ import { ChevronRight, Mail, MapPin, Phone, Scale } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
+import Header from "@/components/header"
+
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Scale className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">Advocacia Silva</span>
-          </div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="#" className="text-sm font-medium transition-colors hover:text-primary">
-              Início
-            </Link>
-            <Link href="#sobre" className="text-sm font-medium transition-colors hover:text-primary">
-              Sobre
-            </Link>
-            <Link href="#areas" className="text-sm font-medium transition-colors hover:text-primary">
-              Áreas de Atuação
-            </Link>
-            <Link href="#equipe" className="text-sm font-medium transition-colors hover:text-primary">
-              Equipe
-            </Link>
-            <Link href="#contato" className="text-sm font-medium transition-colors hover:text-primary">
-              Contato
-            </Link>
-          </nav>
-          <Button className="hidden md:flex">Agende uma Consulta</Button>
-          <Button variant="outline" size="icon" className="md:hidden">
-            <span className="sr-only">Menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          </Button>
-        </div>
-      </header>
+    <div className="flex flex-col min-h-screen pt-16">
+      <Header />
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-gray-50 to-gray-100">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
@@ -65,20 +23,20 @@ export default function Home() {
                   Conte com nossa experiência para defender seus interesses.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button>Agende uma Consulta</Button>
-                  <Button variant="outline">
-                    Conheça Nossos Serviços
-                    <ChevronRight className="ml-1 h-4 w-4" />
-                  </Button>
+                  <Link href="/agendamento">
+                  <Button className="hidden md:flex transition-transform hover:scale-105 active:scale-95">Agende uma Consulta</Button>
+                  </Link>
                 </div>
               </div>
-              <img
-                src="/placeholder.svg?height=550&width=700"
-                alt="Equipe de advogados"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+              <div className="overflow-hidden rounded-xl">
+                <img
+                src="https://images.unsplash.com/photo-1572894234976-d961418c709d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="São Paulo vista de cima"
+                className="transform-gpu will-change-transform transition-transform duration-300 ease-out hover:scale-105 mx-auto aspect-video rounded-xl object-cover object-center sm:w-full lg:order-last grayscale"
                 width={550}
                 height={310}
-              />
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -97,7 +55,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
-              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
+              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4 transform transition-shadow duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="rounded-full border p-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +77,7 @@ export default function Home() {
                   Defendemos seus direitos com determinação e conhecimento jurídico sólido.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
+              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4 transform transition-shadow duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="rounded-full border p-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -131,10 +89,10 @@ export default function Home() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-6 w-6"
+                    className="lucide lucide-award-icon lucide-award"
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="m16 10-4 4-2-2" />
+                    <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
+                    <circle cx="12" cy="8" r="6" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold">Excelência</h3>
@@ -142,22 +100,24 @@ export default function Home() {
                   Buscamos a excelência em cada caso, com atendimento personalizado e soluções eficazes.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4">
+              <div className="flex flex-col items-center space-y-2 border rounded-lg p-4 transform transition-shadow duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="rounded-full border p-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                  <svg xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-scale-icon lucide-scale"
                   >
-                    <path d="M2 12h20" />
-                    <path d="M12 2v20" />
+                    <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                    <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                    <path d="M7 21h10" />
+                    <path d="M12 3v18" />
+                    <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold">Inovação</h3>
@@ -173,7 +133,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Especialidades</div>
+                <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm">Especialidades</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Áreas de Atuação</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Oferecemos serviços jurídicos especializados em diversas áreas do direito, sempre com foco na
@@ -181,7 +141,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3 text-center md:text-left">
               {[
                 {
                   title: "Direito Civil",
@@ -236,156 +196,93 @@ export default function Home() {
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
+                  slug: "carlos-silva",
                   name: "Dr. Carlos Silva",
                   role: "Sócio Fundador",
                   specialty: "Direito Empresarial",
-                  image: "/placeholder.svg?height=400&width=300",
+                  image: "https://images.unsplash.com/photo-1662104935741-3feec65ddf3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
                 {
+                  slug: "ana-oliveira",
                   name: "Dra. Ana Oliveira",
                   role: "Sócia",
                   specialty: "Direito Civil",
-                  image: "/placeholder.svg?height=400&width=300",
+                  image: "https://images.unsplash.com/photo-1662104935541-aa5b6e02886d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
                 {
+                  slug: "roberto-santos",
                   name: "Dr. Roberto Santos",
                   role: "Advogado Sênior",
                   specialty: "Direito Tributário",
-                  image: "/placeholder.svg?height=400&width=300",
+                  image: "https://images.unsplash.com/photo-1662104935762-707db0439ecd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 },
-              ].map((member, index) => (
-                <div key={index} className="flex flex-col items-center space-y-4">
-                  <img
-                    src={member.image || "/placeholder.svg"}
+              ].map((member) => (
+                <Card key={member.slug} className="border-none shadow-sm">
+                  <CardHeader className="text-center">
+                    <img
+                    src={member.image}
                     alt={member.name}
-                    className="aspect-square w-40 rounded-full object-cover object-center"
+                    className="aspect-square w-40 rounded-full object-cover object-center mx-auto"
                     width={160}
                     height={160}
-                  />
-                  <div className="space-y-2 text-center">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm text-gray-500">{member.role}</p>
-                    <p className="text-sm font-medium">{member.specialty}</p>
+                    />
+                    <CardTitle className="mt-4">{member.name}</CardTitle>
+                    <CardDescription>{member.role}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <CardDescription>{member.specialty}</CardDescription>
+                  </CardContent>
+                  <div className="px-4 pb-4 text-center">
+                    <Link
+                      href={`/equipe/${member.slug}`}
+                      className="inline-flex items-center text-sm text-primary hover:underline transition-transform hover:scale-105"
+                    >
+                      Veja perfil completo <ChevronRight className="w-4 h-4 ml-1" />
+                    </Link>
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
         </section>
 
         <section id="contato" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 text-center md:text-left">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Contato</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Entre em Contato</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center md:text-left">Contato</h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Estamos à disposição para atender suas necessidades jurídicas. Entre em contato para agendar uma
-                  consulta.
+                  Estamos à disposição para atender suas necessidades jurídicas.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-primary" />
-                    <span>Av. Paulista, 1000, São Paulo - SP</span>
+                    <a href="https://www.google.com/maps?q=Av.+Paulista,+1000,+São+Paulo+-+SP" target="_blank">Av. Paulista, 1000, São Paulo - SP</a>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span>(11) 3000-0000</span>
+                    <a href="tel:+551130000000">(11) 3000-0000</a>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span>contato@advocaciasilva.com.br</span>
+                    <a href="mailto:contato@advocaciasilva.com.br">contato@advocaciasilva.com.br</a>
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 rounded-lg border bg-background p-6">
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold">Agende uma Consulta</h3>
-                  <p className="text-gray-500">Preencha o formulário abaixo e entraremos em contato em até 24 horas.</p>
-                </div>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="name"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Nome
-                      </label>
-                      <input
-                        id="name"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="Seu nome completo"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="email"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="Seu email"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="phone"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Telefone
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="(00) 00000-0000"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="subject"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Assunto
-                    </label>
-                    <select
-                      id="subject"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      <option value="">Selecione uma área</option>
-                      <option value="civil">Direito Civil</option>
-                      <option value="empresarial">Direito Empresarial</option>
-                      <option value="trabalhista">Direito Trabalhista</option>
-                      <option value="tributario">Direito Tributário</option>
-                      <option value="imobiliario">Direito Imobiliário</option>
-                      <option value="consumidor">Direito do Consumidor</option>
-                    </select>
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="message"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Mensagem
-                    </label>
-                    <textarea
-                      id="message"
-                      className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Descreva brevemente sua necessidade"
-                    ></textarea>
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Enviar Mensagem
-                  </Button>
-                </form>
+              <div className="w-full h-[300px] rounded-lg overflow-hidden shadow-md grayscale opacity-50">
+                <iframe
+                  title="Localização do Escritório"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.980203621234!2d-46.65432168498274!3d-23.576192367105084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c7e0f0b3e1%3A0x1b6e57f2cb9b9c57!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1683905062837!5m2!1spt-BR!2sbr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
+
           </div>
         </section>
       </main>
